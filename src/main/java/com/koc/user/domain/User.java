@@ -1,6 +1,7 @@
 package com.koc.user.domain;
 
 import com.koc.user.Entity.UserEntity;
+import com.koc.user.dto.UserDto;
 import com.koc.user.enums.LoginType;
 import com.koc.user.enums.UserStatus;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,19 @@ public class User {
 
     public UserEntity toEntity() {
         return UserEntity.builder()
+                .id(id)
+                .kocId(kocId)
+                .pw(pw)
+                .kakaoId(kakaoUser.getKakaoId())
+                .email(kakaoUser.getEmail())
+                .loginType(loginType)
+                .userStatus(userStatus)
+                .build();
+    }
+
+    public UserDto toDto() {
+        return UserDto
+                .builder()
                 .id(id)
                 .kocId(kocId)
                 .pw(pw)

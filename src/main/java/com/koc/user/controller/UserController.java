@@ -22,5 +22,10 @@ public class UserController {
         return userService.withdraw(userDto.getId());
     }
 
+    @GetMapping("/{id}")
+    public UserDto findById(@PathVariable long id) {
+        return userService.findById(id);
+    }
+
 
 }
