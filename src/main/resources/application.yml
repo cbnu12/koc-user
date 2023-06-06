@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://koc-user-db:3306/theme?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://koc-user-db:3306/koc?serverTimezone=Asia/Seoul
     username: root
     password: 123
   jpa:
