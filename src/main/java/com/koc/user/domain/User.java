@@ -16,11 +16,6 @@ public class User {
     private LoginType loginType;
     private UserStatus userStatus;
 
-
-    public User(Long kakaoId, LoginType loginType, UserStatus userStatus, String kakaoEmail) {
-        this(null, null, null, new KakaoUser(kakaoId, kakaoEmail), loginType, userStatus);
-    }
-
     public LoginType isKakaoLogin() {
         return LoginType.KAKAO;
     }
@@ -38,6 +33,7 @@ public class User {
                 .id(id)
                 .kocId(kocId)
                 .pw(pw)
+                .kakaoId(kakaoUser.getKakaoId())
                 .email(kakaoUser.getEmail())
                 .loginType(loginType)
                 .userStatus(userStatus)
