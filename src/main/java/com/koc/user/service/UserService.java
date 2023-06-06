@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class UserService {
-    private UserDomainService userDomainService;
+    private final UserDomainService userDomainService;
 
     public User withdraw(Long id) {
         User user = userDomainService

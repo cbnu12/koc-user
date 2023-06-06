@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserDomainService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public Optional<User> findByKakaoId(Long Id) {
         Optional<UserEntity> entity = userRepository.findByKakaoId(Id);
