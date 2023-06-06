@@ -32,7 +32,7 @@ sql:
 social-login:
   kakao:
     client_id: "350e38b3eb9c43bd8f47ce44d19ef349"
-    redirect_uri: "http://localhost:8080/auth"
+    redirect_uri: "http://211.208.125.180/:8085/auth"
     oauth_uri: "https://kauth.kakao.com/oauth"
     kapi_user_info_uri: "https://kapi.kakao.com/v2/user/me"
     javascript_key: "819d78cdd08a6a1d4652bc9f5806bf20"
