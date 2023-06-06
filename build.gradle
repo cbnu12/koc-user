@@ -54,5 +54,5 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 bootJar {
-    mainClass = 'com.koc.themeServer.ThemeApplication'
+    mainClass = 'com.koc.user.UserApplication'
 }
