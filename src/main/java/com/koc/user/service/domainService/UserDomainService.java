@@ -3,13 +3,13 @@ package com.koc.user.service.domainService;
 import com.koc.user.Entity.UserEntity;
 import com.koc.user.domain.User;
 import com.koc.user.repository.UserRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserDomainService {
     private final UserRepository userRepository;
 
