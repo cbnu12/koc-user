@@ -21,12 +21,12 @@ public class User {
         return LoginType.KAKAO;
     }
 
-    public boolean isNomalUser() {
-        return this.userStatus == UserStatus.NOMAL;
+    public boolean isActiveUser() {
+        return this.userStatus == UserStatus.ACTIVE;
     }
 
     public void withdraw() {
-        this.userStatus = UserStatus.WITHDRAW;
+        this.userStatus = UserStatus.INACTIVE;
     }
 
     public UserEntity toEntity() {

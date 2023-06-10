@@ -81,7 +81,7 @@ public class AuthService {
         User user = User.builder()
                 .kakaoUser(kakaoUser)
                 .loginType(LoginType.KAKAO)
-                .userStatus(UserStatus.NOMAL)
+                .userStatus(UserStatus.ACTIVE)
                 .build();
 
         userDomainService.save(user);
