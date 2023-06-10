@@ -1,6 +1,6 @@
 package com.koc.user.domain;
 
-import com.koc.user.Entity.UserEntity;
+import com.koc.user.entity.UserEntity;
 import com.koc.user.dto.UserDto;
 import com.koc.user.enums.LoginType;
 import com.koc.user.enums.UserStatus;

@@ -1,4 +1,4 @@
-package com.koc.user.Entity;
+package com.koc.user.entity;
 
 import com.koc.user.domain.KakaoUser;
 import com.koc.user.domain.User;

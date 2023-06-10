@@ -1,6 +1,6 @@
 package com.koc.user.service.domainService;
 
-import com.koc.user.Entity.UserEntity;
+import com.koc.user.entity.UserEntity;
 import com.koc.user.domain.User;
 import com.koc.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
