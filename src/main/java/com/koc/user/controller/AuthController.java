@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/auth")
 @RestController
 @RequiredArgsConstructor
-public class AuthConroller {
+@RequestMapping("/auth")
+public class AuthController {
 
     private final authService authService;
 
     @GetMapping()
-    public String login(@RequestParam String code) {
-        return authService.login(code);
+    public String getToken(@RequestParam String code) {
+        return authService.getToken(code);
     }
 
     @GetMapping("/kakao-login-url")
