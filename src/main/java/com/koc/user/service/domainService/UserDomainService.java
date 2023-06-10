@@ -15,18 +15,13 @@ public class UserDomainService {
 
     public Optional<User> findByKakaoId(Long Id) {
         Optional<UserEntity> entity = userRepository.findByKakaoId(Id);
-        if (entity.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(entity.get().toUser());
+
+        return entity.map(UserEntity::toUser);
     }
 
     public Optional<User> findById(Long Id) {
         Optional<UserEntity> entity = userRepository.findById(Id);
-        if (entity.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(entity.get().toUser());
+        return entity.map(UserEntity::toUser);
     }
 
     public User save(User user) {
