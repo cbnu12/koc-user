@@ -20,7 +20,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class authService {
+public class AuthService {
     private final KakaoClient client;
     private final UserDomainService userDomainService;
     @Value("${social-login.kakao.oauth_uri}")
@@ -39,20 +39,21 @@ public class authService {
         return kakaoOauthUri + "/authorize?client_id=" + javascriptKey + "&redirect_uri=" + redirectUri + "&response_type=code";
     }
 
-
-    public String login(final String code) {
-        KakaoToken kakaoToken = getToken(code);
-        log.debug(kakaoToken.toString());
+    public String getToken(final String code) {
+        KakaoToken kakaoToken = getTokenFromKakao(code);
+        log.debug("kakaoToken = {}", kakaoToken);
         KakaoUserInfo info = getKakaoUserInfo(kakaoToken.getAccessToken());
-        log.debug(info.toString());
+        log.debug("kakaoUserInfo = {}", info);
         Optional<User> user = userDomainService.findByKakaoId(info.getId());
+
         if (user.isEmpty()) {
-            Optional.of(kakaoJoin(info));
+            kakaoJoin(info);
         }
+
         return kakaoToken.getAccessToken();
     }
 
-    public KakaoToken getToken(final String code) {
+    private KakaoToken getTokenFromKakao(final String code) {
         String kakaoTokenUri = kakaoOauthUri + "/token";
         try {
             return client.getToken(new URI(kakaoTokenUri), clientId, redirectUri, code, "authorization_code");
@@ -62,16 +63,16 @@ public class authService {
         }
     }
 
-    public KakaoUserInfo getKakaoUserInfo(String token) {
+    private KakaoUserInfo getKakaoUserInfo(String token) {
         try {
             return client.getKakaoUserInfo(new URI(kapiUserInfoUri), "Bearer " + token);
         } catch (Exception e) {
             log.error("Something error..", e);
-            throw new RuntimeException("카카오 인증중 오류가 발생했습니다.");
+            throw new RuntimeException("카카오 인증 중 오류가 발생했습니다.");
         }
     }
 
-    public User kakaoJoin(KakaoUserInfo kakaoUserInfo) {
+    private void kakaoJoin(KakaoUserInfo kakaoUserInfo) {
         KakaoUser kakaoUser = KakaoUser.builder().
                 kakaoId(kakaoUserInfo.getId())
                 .email(kakaoUserInfo.getEmail())
@@ -83,7 +84,7 @@ public class authService {
                 .userStatus(UserStatus.NOMAL)
                 .build();
 
-        return userDomainService.save(user);
+        userDomainService.save(user);
     }
 
 }
