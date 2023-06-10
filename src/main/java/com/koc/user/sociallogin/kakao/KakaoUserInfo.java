@@ -4,11 +4,13 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Map;
 import java.util.Optional;
 
 @Getter
+@ToString
 @NoArgsConstructor
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class KakaoUserInfo {
@@ -24,13 +26,5 @@ public class KakaoUserInfo {
 
     public String getEmail() {
         return (String) Optional.ofNullable(kakaoAccount.get("email")).orElse("");
-    }
-
-    @Override
-    public String toString() {
-        return "KakaoUserInfo{" +
-                "id=" + id +
-                ", kakao_account=" + kakaoAccount +
-                '}';
     }
 }
