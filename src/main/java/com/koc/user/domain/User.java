@@ -22,11 +22,11 @@ public class User {
     }
 
     public boolean isNomalUser() {
-        return this.userStatus == UserStatus.NOMAL;
+        return this.userStatus == UserStatus.ACTIVE;
     }
 
     public void withdraw() {
-        this.userStatus = UserStatus.WITHDRAW;
+        this.userStatus = UserStatus.INACTIVE;
     }
 
     public UserEntity toEntity() {
