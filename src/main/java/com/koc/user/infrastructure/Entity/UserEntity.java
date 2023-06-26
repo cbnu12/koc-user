@@ -1,9 +1,9 @@
-package com.koc.user.Entity;
+package com.koc.user.infrastructure.Entity;
 
+import com.koc.user.application.enums.LoginType;
+import com.koc.user.application.enums.UserStatus;
 import com.koc.user.domain.KakaoUser;
 import com.koc.user.domain.User;
-import com.koc.user.enums.LoginType;
-import com.koc.user.enums.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;

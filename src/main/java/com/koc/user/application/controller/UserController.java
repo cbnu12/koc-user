@@ -1,8 +1,8 @@
-package com.koc.user.controller;
+package com.koc.user.application.controller;
 
+import com.koc.user.application.dto.UserDto;
+import com.koc.user.application.service.UserService;
 import com.koc.user.domain.User;
-import com.koc.user.dto.UserDto;
-import com.koc.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,8 +1,8 @@
-package com.koc.user.service.domainService;
+package com.koc.user.application.service.domainService;
 
-import com.koc.user.Entity.UserEntity;
+import com.koc.user.application.repository.UserRepository;
 import com.koc.user.domain.User;
-import com.koc.user.repository.UserRepository;
+import com.koc.user.infrastructure.Entity.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

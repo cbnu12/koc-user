@@ -1,6 +1,6 @@
-package com.koc.user.sociallogin.kakao;
+package com.koc.user.application.sociallogin.kakao;
 
-import com.koc.user.config.KakaoFeignConfiguration;
+import com.koc.user.application.config.KakaoFeignConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

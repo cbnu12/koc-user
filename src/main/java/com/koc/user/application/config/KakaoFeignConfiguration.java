@@ -1,4 +1,4 @@
-package com.koc.user.config;
+package com.koc.user.application.config;
 
 import feign.Client;
 import org.springframework.context.annotation.Bean;

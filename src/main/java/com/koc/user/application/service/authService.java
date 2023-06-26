@@ -1,14 +1,14 @@
-package com.koc.user.service;
+package com.koc.user.application.service;
 
 
+import com.koc.user.application.enums.LoginType;
+import com.koc.user.application.enums.UserStatus;
+import com.koc.user.application.service.domainService.UserDomainService;
+import com.koc.user.application.sociallogin.kakao.KakaoClient;
+import com.koc.user.application.sociallogin.kakao.KakaoToken;
+import com.koc.user.application.sociallogin.kakao.KakaoUserInfo;
 import com.koc.user.domain.KakaoUser;
 import com.koc.user.domain.User;
-import com.koc.user.enums.LoginType;
-import com.koc.user.enums.UserStatus;
-import com.koc.user.service.domainService.UserDomainService;
-import com.koc.user.sociallogin.kakao.KakaoClient;
-import com.koc.user.sociallogin.kakao.KakaoToken;
-import com.koc.user.sociallogin.kakao.KakaoUserInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,7 +29,6 @@ public class authService {
     private String clientId;
     @Value("${social-login.kakao.redirect_uri}")
     private String redirectUri;
-
     @Value("${social-login.kakao.kapi_user_info_uri}")
     private String kapiUserInfoUri;
     @Value("${social-login.kakao.javascript_key}")
@@ -80,7 +79,7 @@ public class authService {
         User user = User.builder()
                 .kakaoUser(kakaoUser)
                 .loginType(LoginType.KAKAO)
-                .userStatus(UserStatus.NOMAL)
+                .userStatus(UserStatus.ACTIVE)
                 .build();
 
         return userDomainService.save(user);
