@@ -1,4 +1,4 @@
-package com.koc.user.sociallogin.kakao;
+package com.koc.user.infra.kakao;
 
 import com.koc.user.config.KakaoFeignConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -13,12 +13,12 @@ import java.net.URI;
 public interface KakaoClient {
 
     @PostMapping(headers = {"Content-Type=application/x-www-form-urlencoded;charset=utf-8"})
-    KakaoToken getToken(URI baseUrl, @RequestParam("client_id") String restApiKey,
-                        @RequestParam("redirect_uri") String redirectUrl,
-                        @RequestParam("code") String code,
-                        @RequestParam("grant_type") String grantType);
+    KakaoTokenResponse getToken(URI baseUrl, @RequestParam("client_id") String restApiKey,
+                                @RequestParam("redirect_uri") String redirectUrl,
+                                @RequestParam("code") String code,
+                                @RequestParam("grant_type") String grantType);
 
     @GetMapping
-    KakaoUserInfo getKakaoUserInfo(URI baseUrl, @RequestHeader("Authorization") String accessToken);
+    KakaoUserInfoResponse getKakaoUserInfo(URI baseUrl, @RequestHeader("Authorization") String accessToken);
 
 }

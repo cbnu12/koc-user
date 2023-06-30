@@ -1,15 +1,13 @@
-package com.koc.user.controller;
+package com.koc.user.presentation.api.usermanagement;
 
-import com.koc.user.dto.UserDto;
-import com.koc.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
-public class UserController {
-    private final UserService userService;
+public class UserManagementController {
+    private final UserManagementService userManagementService;
 
     @GetMapping("/health-check")
     public Long healthCheck() {
@@ -18,13 +16,11 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public void withdraw(@PathVariable Long id) {
-        userService.withdraw(id);
+        userManagementService.withdraw(id);
     }
 
     @GetMapping("/{id}")
-    public UserDto findById(@PathVariable long id) {
-        return userService.findById(id);
+    public UserResponse findById(@PathVariable long id) {
+        return UserResponse.fromDto(userManagementService.getById(id));
     }
-
-
 }
