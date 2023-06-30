@@ -1,6 +1,6 @@
 package com.koc.user.domain;
 
-import com.koc.user.Entity.UserEntity;
+import com.koc.user.entity.UserEntity;
 import com.koc.user.dto.UserDto;
 import com.koc.user.enums.LoginType;
 import com.koc.user.enums.UserStatus;
@@ -21,12 +21,12 @@ public class User {
         return LoginType.KAKAO;
     }
 
-    public boolean isNomalUser() {
-        return this.userStatus == UserStatus.NOMAL;
+    public boolean isActiveUser() {
+        return this.userStatus == UserStatus.ACTIVE;
     }
 
     public void withdraw() {
-        this.userStatus = UserStatus.WITHDRAW;
+        this.userStatus = UserStatus.INACTIVE;
     }
 
     public UserEntity toEntity() {

@@ -1,6 +1,6 @@
 package com.koc.user.service.domainService;
 
-import com.koc.user.Entity.UserEntity;
+import com.koc.user.entity.UserEntity;
 import com.koc.user.domain.User;
 import com.koc.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,18 +15,13 @@ public class UserDomainService {
 
     public Optional<User> findByKakaoId(Long Id) {
         Optional<UserEntity> entity = userRepository.findByKakaoId(Id);
-        if (entity.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(entity.get().toUser());
+
+        return entity.map(UserEntity::toUser);
     }
 
     public Optional<User> findById(Long Id) {
         Optional<UserEntity> entity = userRepository.findById(Id);
-        if (entity.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(entity.get().toUser());
+        return entity.map(UserEntity::toUser);
     }
 
     public User save(User user) {
