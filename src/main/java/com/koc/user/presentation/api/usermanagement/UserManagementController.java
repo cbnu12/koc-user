@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.*;
 public class UserManagementController {
     private final UserManagementService userManagementService;
 
-    @GetMapping("/health-check")
-    public Long healthCheck() {
-        return System.currentTimeMillis();
-    }
 
     @DeleteMapping("/{id}")
     public void withdraw(@PathVariable Long id) {
