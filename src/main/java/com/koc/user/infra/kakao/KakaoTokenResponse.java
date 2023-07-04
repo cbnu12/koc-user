@@ -1,4 +1,4 @@
-package com.koc.user.sociallogin.kakao;
+package com.koc.user.infra.kakao;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class KakaoToken {
+public class KakaoTokenResponse {
     private String tokenType;
     private String accessToken;
     private String refreshToken;
@@ -16,7 +16,7 @@ public class KakaoToken {
     private Long refreshTokenExpiresIn;
 
 
-    public KakaoToken(String tokenType, String accessToken, String refreshToken, Long expiresIn, Long refreshTokenExpiresIn) {
+    public KakaoTokenResponse(String tokenType, String accessToken, String refreshToken, Long expiresIn, Long refreshTokenExpiresIn) {
         this.tokenType = tokenType;
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;

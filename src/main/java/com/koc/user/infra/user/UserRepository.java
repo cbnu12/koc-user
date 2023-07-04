@@ -1,6 +1,5 @@
-package com.koc.user.repository;
+package com.koc.user.infra.user;
 
-import com.koc.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.koc.user.sociallogin.kakao;
+package com.koc.user.infra.kakao;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -13,12 +13,12 @@ import java.util.Optional;
 @ToString
 @NoArgsConstructor
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class KakaoUserInfo {
+public class KakaoUserInfoResponse {
 
     private Long id;
     private Map<String, Object> kakaoAccount;
 
-    public KakaoUserInfo(Long id, Map<String, Object> kakaoAccount) {
+    public KakaoUserInfoResponse(Long id, Map<String, Object> kakaoAccount) {
         this.id = id;
         this.kakaoAccount = kakaoAccount;
     }

@@ -1,6 +1,5 @@
-package com.koc.user.controller;
+package com.koc.user.presentation.api.auth;
 
-import com.koc.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

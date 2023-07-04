@@ -1,7 +1,5 @@
-package com.koc.user.dto;
+package com.koc.user.domain.user;
 
-import com.koc.user.enums.LoginType;
-import com.koc.user.enums.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,8 +15,6 @@ public class UserDto {
     private String pw;
     private Long kakaoId;
     private String email;
-    private LoginType loginType;
-    private UserStatus userStatus;
-
-
+    private String loginType;
+    private String userStatus;
 }
