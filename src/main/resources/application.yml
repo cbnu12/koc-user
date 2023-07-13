@@ -37,7 +37,8 @@ social-login:
     kapi_user_info_uri: "https://kapi.kakao.com/v2/user/me"
     javascript_key: "819d78cdd08a6a1d4652bc9f5806bf20"
 
-
+jwt:
+  password: "testPassword"
 
 
 
