@@ -21,6 +21,14 @@ public class UserDomainService {
         return Optional.of(entity.get().toUser());
     }
 
+    public Optional<User> findByEmail(String email) {
+        Optional<UserEntity> entity = userRepository.findByEmail(email);
+        if (entity.isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.of(entity.get().toUser());
+    }
+
     public Optional<User> findById(Long Id) {
         Optional<UserEntity> entity = userRepository.findById(Id);
         if (entity.isEmpty()) {

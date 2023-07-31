@@ -15,6 +15,7 @@ public class UserDto {
     private Long id;
     private String kocId;
     private String pw;
+    private String refreshToken;
     private Long kakaoId;
     private String email;
     private LoginType loginType;

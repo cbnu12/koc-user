@@ -22,9 +22,12 @@ public class UserEntity {
     private Long id;
     private String kocId;
     private String pw;
+    private String refreshToken;
     private Long kakaoId;
     private String email;
+    @Enumerated(EnumType.STRING)
     private LoginType loginType;
+    @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
 
     public User toUser() {
@@ -32,6 +35,7 @@ public class UserEntity {
                 .id(id)
                 .kocId(kocId)
                 .pw(pw)
+                .refreshToken(refreshToken)
                 .kakaoUser(new KakaoUser(kakaoId, email))
                 .loginType(loginType)
                 .userStatus(userStatus)
