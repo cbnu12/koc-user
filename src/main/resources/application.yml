@@ -1,7 +1,31 @@
 server:
   port: 8085
+---
+spring:
+  profiles: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/koc
+    username: root
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:user_mock_data.sql
+
+
+---
 
 spring:
+  profiles: prod
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://koc-user-db:3306/koc?serverTimezone=Asia/Seoul
@@ -14,7 +38,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:user_mock_data.sql
+---
 springdoc:
   version: '1.0.0'
   api-docs:
@@ -24,15 +53,12 @@ springdoc:
   swagger-ui:
     operations-sorter: method
 
-sql:
-  init:
-    platporm: mysql
-    data-locations: classpath:data.sql
+
 
 social-login:
   kakao:
     client_id: "350e38b3eb9c43bd8f47ce44d19ef349"
-    redirect_uri: "http://211.208.125.180:8085/auth"
+    redirect_uri: "http://localhost:8080/auth"
     oauth_uri: "https://kauth.kakao.com/oauth"
     kapi_user_info_uri: "https://kapi.kakao.com/v2/user/me"
     javascript_key: "819d78cdd08a6a1d4652bc9f5806bf20"
