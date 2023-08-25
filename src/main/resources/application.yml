@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://koc-user-db:3306/koc?serverTimezone=Asia/Seoul
-    username: root
-    password: 123
+    url: jdbc:mysql://121.167.132.221:3306/user?serverTimezone=Asia/Seoul
+    username: koc-user
+    password: 2012
   jpa:
     hibernate:
       ddl-auto: create
@@ -32,7 +32,7 @@ sql:
 social-login:
   kakao:
     client_id: "350e38b3eb9c43bd8f47ce44d19ef349"
-    redirect_uri: "http://211.208.125.180:8085/auth"
+    redirect_uri: "http://121.167.132.221:8085/auth"
     oauth_uri: "https://kauth.kakao.com/oauth"
     kapi_user_info_uri: "https://kapi.kakao.com/v2/user/me"
     javascript_key: "819d78cdd08a6a1d4652bc9f5806bf20"
